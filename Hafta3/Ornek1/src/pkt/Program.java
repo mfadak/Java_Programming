@@ -17,7 +17,9 @@ public class Program {
 		if(sonuc < 50) System.out.print("Başrısız: ");
 		else System.out.print("Başarılı :");
 		
+		HarfNotu harf = hesapla(sonuc);
 		System.out.println(hesapla(sonuc));
+		System.out.println("Belge: "+belgeGetir(harf));
 	}
 	
 	public static HarfNotu hesapla(double sonuc) {
@@ -30,6 +32,17 @@ public class Program {
 		else if(sonuc < 80) return HarfNotu.BB;
 		else if(sonuc < 90) return HarfNotu.BA;
 		else return HarfNotu.AA;
+	}
+	
+	public static Belge belgeGetir(HarfNotu harf) {
+		switch (harf) {
+		case BB: case BA:
+			return Belge.Onur;
+		case AA:
+			return Belge.YuksekOnur;
+		default:
+			return Belge.Yok;
+		}
 	}
 
 }
